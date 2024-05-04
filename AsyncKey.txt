@@ -1,0 +1,120 @@
+#If VBA7 Then
+    Private Declare PtrSafe Function GetAsyncKeyState Lib "user32" _
+            (ByVal vKey As Long) As Integer
+#Else
+    Private Declare Function GetAsyncKeyState Lib "user32" _
+            (ByVal vKey As Long) As Integer
+#End If
+
+'List compiled by Ryan Wells at wellsr.com
+
+ Private Const VK_LBUTTON = &H1 'Left mouse button
+ Private Const VK_RBUTTON = &H2 'Right mouse button
+ Private Const VK_CANCEL = &H3 'Control-break processing
+ Private Const VK_MBUTTON = &H4 'Middle mouse button (three-button mouse)
+ Private Const VK_BACK = &H8 'BACKSPACE key
+ Private Const VK_TAB = &H9 'TAB key
+ Private Const VK_CLEAR = &HC  'CLEAR key
+ Private Const VK_RETURN = &HD  'ENTER key
+ Private Const VK_SHIFT = &H10 'SHIFT key
+ Private Const VK_CONTROL = &H11 'CTRL key
+ Private Const VK_MENU = &H12 'ALT key
+ Private Const VK_PAUSE = &H13 'PAUSE key
+ Private Const VK_CAPITAL = &H14 'CAPS LOCK key
+ Private Const VK_ESCAPE = &H1B 'ESC key
+ Private Const VK_SPACE = &H20 'SPACEBAR
+ Private Const VK_PRIOR = &H21 'PAGE UP key
+ Private Const VK_NEXT = &H22 'PAGE DOWN key
+ Private Const VK_END = &H23 'END key
+ Private Const VK_HOME = &H24 'HOME key
+ Private Const VK_LEFT = &H25 'LEFT ARROW key
+ Private Const VK_UP = &H26 'UP ARROW key
+ Private Const VK_RIGHT = &H27 'RIGHT ARROW key
+ Private Const VK_DOWN = &H28 'DOWN ARROW key
+ Private Const VK_SELECT = &H29 'SELECT key
+ Private Const VK_PRINT = &H2A 'PRINT key
+ Private Const VK_EXECUTE = &H2B 'EXECUTE key
+ Private Const VK_SNAPSHOT = &H2C 'PRINT SCREEN key
+ Private Const VK_INSERT = &H2D 'INS key
+ Private Const VK_DELETE = &H2E 'DEL key
+ Private Const VK_HELP = &H2F 'HELP key
+ Private Const VK_0 = &H30 '0 key
+ Private Const VK_1 = &H31 '1 key
+ Private Const VK_2 = &H32 '2 key
+ Private Const VK_3 = &H33 '3 key
+ Private Const VK_4 = &H34 '4 key
+ Private Const VK_5 = &H35 '5 key
+ Private Const VK_6 = &H36 '6 key
+ Private Const VK_7 = &H37 '7 key
+ Private Const VK_8 = &H38 '8 key
+ Private Const VK_9 = &H39 '9 key
+ Private Const VK_A = &H41 'A key
+ Private Const VK_B = &H42 'B key
+ Private Const VK_C = &H43 'C key
+ Private Const VK_D = &H44 'D key
+ Private Const VK_E = &H45 'E key
+ Private Const VK_F = &H46 'F key
+ Private Const VK_G = &H47 'G key
+ Private Const VK_H = &H48 'H key
+ Private Const VK_I = &H49 'I key
+ Private Const VK_J = &H4A 'J key
+ Private Const VK_K = &H4B 'K key
+ Private Const VK_L = &H4C 'L key
+ Private Const VK_M = &H4D 'M key
+ Private Const VK_N = &H4E 'N key
+ Private Const VK_O = &H4F 'O key
+ Private Const VK_P = &H50 'P key
+ Private Const VK_Q = &H51 'Q key
+ Private Const VK_R = &H52 'R key
+ Private Const VK_S = &H53 'S key
+ Private Const VK_T = &H54 'T key
+ Private Const VK_U = &H55 'U key
+ Private Const VK_V = &H56 'V key
+ Private Const VK_W = &H57 'W key
+ Private Const VK_X = &H58 'X key
+ Private Const VK_Y = &H59 'Y key
+ Private Const VK_Z = &H5A 'Z key
+ Private Const VK_NUMPAD0 = &H60 'Numeric keypad 0 key
+ Private Const VK_NUMPAD1 = &H61 'Numeric keypad 1 key
+ Private Const VK_NUMPAD2 = &H62 'Numeric keypad 2 key
+ Private Const VK_NUMPAD3 = &H63 'Numeric keypad 3 key
+ Private Const VK_NUMPAD4 = &H64 'Numeric keypad 4 key
+ Private Const VK_NUMPAD5 = &H65 'Numeric keypad 5 key
+ Private Const VK_NUMPAD6 = &H66 'Numeric keypad 6 key
+ Private Const VK_NUMPAD7 = &H67 'Numeric keypad 7 key
+ Private Const VK_NUMPAD8 = &H68 'Numeric keypad 8 key
+ Private Const VK_NUMPAD9 = &H69 'Numeric keypad 9 key
+ Private Const VK_SEPARATOR = &H6C 'Separator key
+ Private Const VK_SUBTRACT = &H6D 'Subtract key
+ Private Const VK_DECIMAL = &H6E 'Decimal key
+ Private Const VK_DIVIDE = &H6F 'Divide key
+ Private Const VK_F1 = &H70 'F1 key
+ Private Const VK_F2 = &H71 'F2 key
+ Private Const VK_F3 = &H72 'F3 key
+ Private Const VK_F4 = &H73 'F4 key
+ Private Const VK_F5 = &H74 'F5 key
+ Private Const VK_F6 = &H75 'F6 key
+ Private Const VK_F7 = &H76 'F7 key
+ Private Const VK_F8 = &H77 'F8 key
+ Private Const VK_F9 = &H78 'F9 key
+ Private Const VK_F10 = &H79 'F10 key
+ Private Const VK_F11 = &H7A 'F11 key
+ Private Const VK_F12 = &H7B 'F12 key
+ Private Const VK_F13 = &H7C 'F13 key
+ Private Const VK_F14 = &H7D 'F14 key
+ Private Const VK_F15 = &H7E 'F15 key
+ Private Const VK_F16 = &H7F 'F16 key
+ Private Const VK_NUMLOCK = &H90 'NUM LOCK key
+ Private Const VK_SCROLL = &H91 'SCROLL LOCK key
+ Private Const VK_LSHIFT = &HA0 'Left SHIFT key
+ Private Const VK_RSHIFT = &HA1 'Right SHIFT key
+ Private Const VK_LCONTROL = &HA2 'Left CONTROL key
+ Private Const VK_RCONTROL = &HA3 'Right CONTROL key
+ Private Const VK_LMENU = &HA4 'Left MENU key
+ Private Const VK_RMENU = &HA5 'Right MENU key
+ Private Const VK_PLAY = &HFA 'Play key
+ Private Const VK_ZOOM = &HFB 'Zoom key
+
+'REMINDER: To remind yourself how to use these keys
+' with the GetAsyncKeyState function, please visit:
+' http://wellsr.com/vba/2017/excel/GetAsyncKeyState-vba-to-wait-until-a-key-is-pressed/
