@@ -1,0 +1,94 @@
+#
+from tkinter import *
+
+import tkinter as tk
+
+from tkinter.ttk import Button
+
+# get pcs
+
+win = tk.Tk()  # Creating instance of Tk class
+win.title("LASER MARKING AUTOMATION")
+win.resizable(False, False)  # This code helps to disable windows from resizing
+
+window_height = 690
+window_width = 650
+
+screen_width = win.winfo_screenwidth()
+screen_height = win.winfo_screenheight()
+
+x_cordinate = int((screen_width/2) - (window_width/45))
+y_cordinate = int((screen_height/2) - (window_height/2))
+
+win.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+
+
+label1=Label(win,text="Enter Total Pieces :",fg="green",font=("Helvetica 18 bold",14))
+label1.grid(row=0,column=0,padx=5,pady=10)
+
+tpcs=StringVar()
+totalpiece=Entry(win,textvariable=tpcs,fg="blue",font=("arial",15))
+totalpiece.grid(row=0,column=1)
+totalpiece.focus_set()
+
+
+
+def myfuction():
+    emptylabel.config(text='Total  Pieces : '+ tpcs.get())
+    print(tpcs.get())
+    win.destroy()
+Button1=Button(win,command=myfuction,text="Okay")
+Button1.grid(row=1,column=1,sticky=W)
+
+emptylabel=Label(win,fg="black",font=("Helvetica 18 bold",10))
+emptylabel.grid(row=2,column=1,sticky=W)
+win.mainloop()
+
+    # get Product code get
+from tkinter import *
+
+import tkinter as tk
+
+from tkinter.ttk import Button
+
+win2 = tk.Tk()  # Creating instance of Tk class
+win2.title("LASER MARKING AUTOMATION")
+win2.resizable(False, False)  # This code helps to disable windows from resizing
+
+window_height = 690
+window_width = 650
+
+screen_width = win2.winfo_screenwidth()
+screen_height = win2.winfo_screenheight()
+
+x_cordinate = int((screen_width/2) - (window_width/45))
+y_cordinate = int((screen_height/2) - (window_height/2))
+
+win2.geometry("{}x{}+{}+{}".format(window_width, window_height, x_cordinate, y_cordinate))
+
+
+label1=Label(win2,text="Scan the Product Code  :",fg="green",font=("Helvetica 18 bold",14))
+label1.grid(row=0,column=0,padx=10,pady=20)
+
+pcode=StringVar()
+product=Entry(win2,textvariable=pcode,fg="blue",font=("arial",15))
+product.grid(row=0,column=1)
+product.focus_set()
+
+
+
+def myfuction1():
+    emptylabel.config(text='Product code : '+ pcode.get())
+    print(pcode.get())
+    win2.destroy()
+Button1=Button(win2,command=myfuction1,text="Okay")
+Button1.grid(row=1,column=1,sticky=W)
+
+emptylabel=Label(win2,fg="black",font=("Helvetica 18 bold",10))
+emptylabel.grid(row=2,column=1,sticky=W)
+win2.mainloop()
+
+total=tpcs.get()
+print(total)
+product=pcode.get()
+print(product)
